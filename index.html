@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Drawing a Polygon</title>
+</head>
+
+<body>
+    <canvas id="myCanvas" width="600" height="400">Your browser does not support the HTML5 canvas tag. </canvas>
+    <script>
+        var canvas = document.getElementById('myCanvas');
+        var ctx = canvas.getContext('2d');
+        var numberOfSides = 8;
+        var radius = 100;
+        var x = 125;
+        var y = 125;
+        var angle = 2 * Math.PI / numberOfSides;
+        ctx.beginPath();
+        ctx.translate(x, y);
+        ctx.rotate(angle / 2);
+        ctx.moveTo(radius * Math.cos(0), radius * Math.sin(0));
+        for (var i = 1; i <= numberOfSides; i++) {
+            ctx.lineTo(radius * Math.cos(i * angle), radius * Math.sin(i * angle));
+        }
+        ctx.stroke();
+        ctx.fill();
+    </script>
+
+</body>
