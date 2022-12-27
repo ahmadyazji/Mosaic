@@ -7,24 +7,27 @@
 </head>
 
 <body>
-    <canvas id="myCanvas" width="600" height="400">Your browser does not support the HTML5 canvas tag. </canvas>
+    <canvas id="myCanvas" width="1400" height="750">Your browser does not support the HTML5 canvas tag. </canvas>
     <script>
+        
         var canvas = document.getElementById('myCanvas');
-        var ctx = canvas.getContext('2d');
+        var context = canvas.getContext('2d');
         var numberOfSides = 8;
-        var radius = 100;
-        var x = 125;
-        var y = 125;
+        var octagonSideLength = 60;
+        var triangl1eSideLengh = 70;
+        var radius = octagonSideLength / 2 * Math.sqrt( 4 + 2 * Math.sqrt(2));
+        var x = canvas.clientWidth/2;
+        var y = canvas.clientHeight/2;
         var angle = 2 * Math.PI / numberOfSides;
-        ctx.beginPath();
-        ctx.translate(x, y);
-        ctx.rotate(angle / 2);
-        ctx.moveTo(radius * Math.cos(0), radius * Math.sin(0));
+        context.beginPath();
+        context.translate(x, y);
+        context.rotate(angle / 2);
+        context.moveTo(radius * Math.cos(0), radius * Math.sin(0));
         for (var i = 1; i <= numberOfSides; i++) {
-            ctx.lineTo(radius * Math.cos(i * angle), radius * Math.sin(i * angle));
+            context.lineTo(radius * Math.cos(i * angle), radius * Math.sin(i * angle));
         }
-        ctx.stroke();
-        ctx.fill();
+        context.stroke();
+        context.fill();
     </script>
 
 </body>
